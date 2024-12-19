@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Decorator</title>
+      <link rel="icon" type="image/png" href="img/title/title-icon-16x16.png" sizes="16x16">
+      <link rel="icon" type="image/png" href="img/title/title-icon-32x32.png" sizes="32x32">
+      <link rel="icon" type="image/png" href="img/title/title-icon-96x96.png" sizes="96x96">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  </head>
+  <body>
+    <header>
+      <div id="messages-container"></div>
+      <!-- Кнопка "Корзина" -->
+      <button class="cart-button" onclick="openCart()"><img class="cart-img" src="img/store_icon.svg" alt="store icon"></img></button>
+
+      <!-- Модальне вікно з корзиною -->
+      <div class="modal">
+        <div class="modal-content">
+        <span class="close" onclick="closeCart()">&times;</span>
+        <div class="cart"></div>
+        <div class="cart__client__info">
+          <div class="cart__request">
+            <form name="purchase">
+              <input class="contact__imput" name="fullname" placeholder="Введіть повне ім'я*" required>
+              <hr>
+              <input class="contact__imput" name="phone" placeholder="Введіть телефон" required>
+              <hr>
+              <input class="contact__imput" name="email" placeholder="Введіть e-mail*" required>
+              <hr>
+              <textarea class="contact__imput large__imput" name="message" placeholder="Введіть коментар до замовлення"></textarea>
+              <div class="g-recaptcha" data-sitekey="6Le_sZQmAAAAAE0aD6ns0rCl9EVvAw80fcaqgS9B"></div>
+              <div class="cart__buttons"> 
+                <input class="f__button__request cart__purchase" type="submit" value="Замовити">
+                <input class="f__button__request cart__back" value="Вернутись">
+              </div>
+            </form>
+            <p class="comment__purchase">Після бронювання наш менеджер зв'яжеться з вами, щоб уточнити всі деталі. Ми врахуємо ваші побажання щодо стилю та бюджету. Дякуємо за довіру! :)</p>
+          </div>
+        </div>
+      </div>
+      </div>
+        <div class="container">
+          <div class="top__contacts">
+            <div class="top__contacts__geo">
+              <img class="top__icons" src="img/geoicon.svg" alt="geo icon">
+              <p class="adress">303 E 61st St, Lviv, NY 10065</p>
+            </div>
+            <div class="top__contacts__phone">
+              <a href="tel:+380668882024"><img class="top__icons phone" src="img/phoneicon.svg" alt="phone icon"></a>
+              <a class="top__contacts__number" href="tel:+380668882024">+ (380) 66 888 2024</a>
+            </div>
+          </div>
+          <nav class="top-nav">
+            <a href="index.html">
+              <img class="logo" src="img/designlogo.png" alt="Decorator logotype">
+            </a>
+            <div class="menu">
+              <a class="smooth-scroll" href="#about">Про нас</a>
+              <a class="smooth-scroll" href="#machines">Декор</a>
+              <!-- <a class="smooth-scroll" href="#interior">Ексклюзив</a> -->
+              <a class="smooth-scroll menu__about" href="#testimonials">Відгуки</a>
+              <a class="smooth-scroll" href="#services">Послуги</a>
+              <a class="smooth-scroll" href="#pricing">Ціни</a>
+              <a class="smooth-scroll" href="#contacts">Контакти</a>
+            </div>
+            <div class="socnetw">
+              <a href="https://facebook.com"><img src="img/facebook__top-icon.svg" alt="facebook"></a>
+              <a href="https://instagram.com"><img src="img/instagram__top-icon.svg" alt="twitter"></a>
+              <a href="https://youtube.com"><img src="img/youtube__top-icon.svg" alt="youtube"></a>
+            </div>
+            <nav class="mobile-header">
+              <div class="burger-button">
+                <span></span>
+              </div>
+            </nav>
+            <div class="burger-menu-content">
+              <a class="smooth-scroll" href="#about">Про нас</a>
+              <a class="smooth-scroll" href="#machines">Декор</a>
+              <!-- <a class="smooth-scroll" href="#interior">Ексклюзив</a> -->
+              <a class="smooth-scroll" href="#testimonials">Відгуки</a>
+              <a class="smooth-scroll" href="#services">Послуги</a>
+              <a class="smooth-scroll" href="#pricing">Ціни</a>
+              <a class="smooth-scroll" href="#contacts">Контакти</a>
+              <hr>
+              <div class="burger-geo">
+                <a><img class="top__icons" src="img/geoicon.svg" alt="geo icon"></a>
+                <p class="adress">303 E 61st St, Lviv, NY 10065</p>
+              </div>
+              <div class="burger-phone">
+                <a href="tel:+380668882024"><img class="top__icons phone" src="img/phoneicon.svg" alt="phone icon"></a>
+                <a class="top__contacts__number" href="tel:+380668882024">+ (380) 66 888 2024</a>
+              </div>
+              <div class="socnetw__burg">
+                <a href="https://facebook.com"><img src="img/facebook__top-icon.svg" alt="facebook"></a>
+                <a href="https://instagram.com"><img src="img/instagram__top-icon.svg" alt="twitter"></a>
+                <a href="https://youtube.com"><img src="img/youtube__top-icon.svg" alt="youtube"></a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="header__background">
+          <div class="container">
+			<section id="rental">
+			  <p class="section__tag section__rental">Послуги</p>
+			  <h1 class="rental__name">Привіт!<br><span class="name__red">Мрієш про ідеальний інтер’єр?</span></h1>
+			  <p class="rental__descr">Шукаєш професійного декоратора? Забронюй консультацію та створимо простір твоєї мрії!</p>
+			  <a class="rental__button transition smooth-scroll" href="#pricing">Більше</a>
+			</section>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section id="benefits">
+          <div class="container benefits__container">
+            <div class="included">
+              <img class="benefits__image" src="img/included.svg" alt="warrantly included">
+              <div class="benefits__content">
+				<h3>Свій підхід</h3>
+				<p>Ми працюємо з урахуванням вашого стилю, побажань та бюджету.</p>
+              </div>
+            </div>
+            <div class="delivery">
+              <img class="benefits__image" src="img/delivery.svg" alt="next-day delivery">
+              <div class="benefits__content">
+				<h3>Швидке виконання</h3>
+				<p>Гарантуємо дотримання строків виконання вашого проєкту.</p>
+              </div>
+            </div>
+            <div class="prices">
+              <img class="benefits__image" src="img/prices.svg" alt="affordable prices">
+              <div class="benefits__content">
+                <h3>Доступні ціни</h3>
+                <p>З нашими низькими цінами кожен може насолодитись інтер'єром мрії.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="about">
+          <div class="container about__countainer">
+            <img class="decoratorphoto" src="img/about/About_1.png" alt="Photo interior by decorator">
+            <div class="about__content">
+              <p class="section__tag section__about">Про нас</p>
+              <h2 class="section__name about__name">Про Decorator</h2>
+              <p class="about__descr">Ми надаємо професійні послуги з дизайну та декорування різноманітного інтер'єру з ваших побажань.</p>
+              <p class="paragraph__text">Вже понад 10 років ми створюємо унікальні простори, які дарують комфорт, естетику та неймовірні враження.</p>
+              <ul>
+                <li>
+                  <img class="confirmed__icon" src="img/confirmed.svg" alt="Confirmed">
+                  <div class="about__list__content">
+                    <p class="paragraph__text about__list__name">Житлові приміщення</p>
+                    <p class="paragraph__text">Ми допоможемо перетворити вашу оселю на справжній шедевр.</p>
+                  </div>
+                </li>
+                <li>
+                  <img class="confirmed__icon" src="img/confirmed.svg" alt="Confirmed">
+                  <div class="about__list__content">
+                    <p class="paragraph__text about__list__name">Комерційні простори</p>
+                    <p class="paragraph__text">Створимо стильні офіси, кафе або магазини, які вражають клієнтів.</p>
+                  </div>
+                </li>
+                <li>
+                  <img class="confirmed__icon" src="img/confirmed.svg" alt="Confirmed">
+                  <div class="about__list__content">
+                    <p class="paragraph__text about__list__name">Різноманітні локації</p>
+                    <p class="paragraph__text">Створимо локації, які передають неймовірні враження.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section id="steps">
+          <div class="container">
+            <p class="section__tag">Кроки</p>
+            <h2 class="section__name">Як замовити послуги декоратора?</h2>
+            <p class="comment">Всього 4 простесеньких кроки.</p>
+            <ul class="elements__steps">
+              <li class="element__steps">
+                <img class="element__photo" src="img/steps/step_1.jpg" alt="write to us">
+                <p class="element__name"><span class="number__steps">01.</span> Зв'яжіться з нами</p>
+                <p class="describe__steps paragraph__text">Заповніть форму або зателефонуйте, щоб домовитись про консультацію.</p>
+              </li>
+              <li class="element__steps">
+                <img class="element__photo" src="img/steps/step_2.jpg" alt="send a request">
+                <p class="element__name"><span class="number__steps">02.</span> Розробка дизайну</p>
+                <p class="describe__steps paragraph__text">Наші спеціалісти підберуть варіанти, які відповідають вашому стилю та бюджету.</p>
+              </li>
+              <li class="element__steps">
+                <img class="element__photo" src="img/steps/step_3.jpg" alt="expect answer">
+                <p class="element__name"><span class="number__steps">03.</span> Узгодження проекту</p>
+                <p class="describe__steps paragraph__text">Ми узгодимо з вами фінальний варіант і підберемо всі необхідні матеріали.</p>
+              </li>
+              <li class="element__steps">
+                <img class="element__photo" src="img/steps/step_4.jpg" alt="enjoy amazing interior">
+                <p class="element__name"><span class="number__steps">04.</span> Реалізація проекту</p>
+                <p class="describe__steps paragraph__text">Команда виконає роботи, забезпечуючи високу якість та дотримання термінів!</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <div class="special">
+            <div class="special__content">
+              <div class="special__text">
+                <p class="section__tag special__section">Новинка</p>
+                <p class="special__name">Ексклюзивний проект<br>«Скандинавський мінімалізм»</p>
+                <p class="special__describe">Новий тренд у дизайні інтер’єру, створений для поціновувачів функціональності та естетики. Підходить для квартир, будинків та офісів.</p>
+                <div class="special__buttons"> 
+                  <a class="button__second smooth-scroll" href="#contacts">Замовити консультацію</a>
+                  <!-- <a class="button__outline smooth-scroll" href="#about-machine">Характеристики</a> -->
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="company__carousel">
+          <img class="customPreviousBtn prev" src="img/slide-prev.svg" alt="prev slide">
+          <ul class="elements__company__carousel container owl-carousel slide-one">
+            <li class="element__company__carousel"><img src="img/lavazza.png" alt="lavazza"></li>
+            <li class="element__company__carousel"><img src="img/folgers.png" alt="folgers"></li>
+            <li class="element__company__carousel"><img src="img/frontier.png" alt="frontier"></li>
+            <li class="element__company__carousel"><img src="img/melitta.png" alt="melitta"></li>
+            <li class="element__company__carousel"><img src="img/greenmountain.png" alt="greenmountain"></li>
+            <li class="element__company__carousel"><img src="img/monarch.png" alt="monarch"></li>
+            <li class="element__company__carousel"><img src="img/costa.png" alt="costa"></li>
+          </ul>
+          <img class="customNextBtn next" src="img/slide-next.svg" alt="next slide">
+        </div>
+        <section id="machines">
+          <div class="container">
+            <p class="section__tag">Декор</p>
+            <h2 class="section__name">Перегляньте стильні товари для вашого інтер'єру</h2>
+            <p class="comment">Ми пропонуємо преміум-товари для створення затишного та сучасного інтер'єру.</p>
+            <div class="decorator__carousel">
+              <img class="decorator__carousel__arrows customPreviousBtnTwo" src="img/arrow-left.svg" alt="prev slide">
+              <div class="decorator__store container owl-carousel slide-two">
+                <div class="decorator__store__element">
+                  <img class="decorator__img product__img" src="img/decorations/elegant_sofa.png" alt="frost coffee machine">
+                  <p class="decorator__name product__name">Елегантний диван</p>
+                  <p class="decorator__price product__price">125,00USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decorator__store__element">
+                  <img class="decorator__img product__img" src="img/decorations/wood_nightstand.png" alt="smik 2 coffee machine">
+                  <p class="decorator__name product__name">Дерев'яна тумбочка</p>
+                  <p class="decorator__price product__price">55,00USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decorator__store__element">
+                  <img class="decorator__img product__img" src="img/decorations/white_flower_pot.png" alt="organic coffee machine">
+                  <p class="decorator__name product__name">Квітковий горщик</p>
+                  <p class="decorator__price product__price">20,00USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decorator__store__element">
+                  <img class="decorator__img product__img" src="img/decorations/yellow_sofa.png" alt="smik coffee machine">
+                  <p class="decorator__name product__name">Жовтий диван</p>
+                  <p class="decorator__price product__price">160,00USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decorator__store__element">
+                  <img class="decorator__img product__img" src="img/decorations/black_nightstand.png" alt="la spezia coffee machine">
+                  <p class="decorator__name product__name">Чорна тумбочка</p>
+                  <p class="decorator__price product__price">80,00USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+              </div>
+              <img class="decorator__carousel__arrows customNextBtnTwo" src="img/arrow-right.svg" alt="next slide">
+              </div>
+          </div>
+        </section>
+        <section id="exceptional__taste">
+          <div class="decor__photo__container"><img class="decor__photo" src="img/exceptional/exceptional__1.png" alt="coffee photo"></div>
+          <div class="exceptional__content">
+            <p class="section__tag section__exceptional">Унікальний дизайн</p>
+            <h2 class="section__name">Стиль та комфорт у кожній деталі</h2>
+            <p class="comment">Ми пропонуємо нашим клієнтам тільки найкращі інтер’єрні рішення, що поєднують функціональність і естетику. Завдяки нашому індивідуальному підходу ви створите простір своєї мрії.</p>
+            <p class="paragraph__text">Стильний інтер’єр — це не лише краса, але й зручність. Ми у Decorator віримо, що ваш дім чи офіс заслуговує найкращого. Ось уже понад 10 років ми допомагаємо створювати ідеальний простір для наших клієнтів.</p>
+            <ul>
+              <li class="exceptional__list__element">
+                <div class="background__list__icon"><img class="exceptional__list__icons" src="img/beans.svg" alt="beans"></div>
+                <div class="list__element__content"> 
+                  <p class="exceptional__list__n">Преміум-матеріали</p>
+                  <p class="paragraph__text">Наші партнери — провідні виробники меблів та декору, які використовують лише екологічні та довговічні матеріали для створення своїх шедеврів.</p>
+                </div>
+                </li>
+              <li class="exceptional__list__element">
+                <div class="background__list__icon"><img class="exceptional__list__icons" src="img/coffee.svg" alt="coffee"></div>
+                <div class="list__element__content">
+                  <p class="exceptional__list__n">Швидка доставка</p>
+                  <p class="paragraph__text">Ми забезпечимо доставку вашого замовлення у зручний для вас час. Ви завжди можете розраховувати на нас!</p>
+                </div>
+              </li>
+              <li class="exceptional__list__element">
+                <div class="background__list__icon"><img class="exceptional__list__icons" src="img/coffeemachine.svg" alt="coffeemachine"></div>
+                <div class="list__element__content">
+                  <p class="exceptional__list__n">Різноманітність вибору</p>
+                  <p class="paragraph__text">Ми пропонуємо широкий асортимент меблів, декору та аксесуарів, щоб кожен міг знайти ідеальне рішення для свого простору.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- <section id="arrival"> -->
+          <!-- <div class="arrival__content"> -->
+            <!-- <h2 class="section__tag section__arrival">Новинка</h2> -->
+            <!-- <p class="section__name">Зустрічайте стілець ELEGANCE</p> -->
+            <!-- <p class="comment">Цей стильний і комфортний стілець стане ідеальним доповненням до вашого інтер'єру. Він підходить для роботи, відпочинку або навіть як акцентний елемент у вашій кімнаті.</p> -->
+            <!-- <p class="paragraph__text">Стілець ELEGANCE поєднує естетику та функціональність. Виготовлений із високоякісних матеріалів, він гарантує довговічність і комфорт. Його сучасний дизайн ідеально підходить як для дому, так і для офісу.</p> -->
+            <!-- <ul class="arrival__list"> -->
+              <!-- <li class="arrival__list__element"> -->
+                <!-- <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed"> -->
+                <!-- <p>М'яка оббивка преміум-класу;</p> -->
+              <!-- </li> -->
+              <!-- <li class="arrival__list__element"> -->
+                <!-- <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed"> -->
+                <!-- <p>Регульована висота сидіння;</p> -->
+              <!-- </li> -->
+              <!-- <li class="arrival__list__element"> -->
+                <!-- <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed"> -->
+                <!-- <p>Міцний металевий каркас;</p> -->
+              <!-- </li> -->
+              <!-- <li class="arrival__list__element"> -->
+                <!-- <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed"> -->
+                <!-- <p>Сучасний мінімалістичний дизайн;</p> -->
+              <!-- </li> -->
+              <!-- <li class="arrival__list__element"> -->
+                <!-- <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed"> -->
+                <!-- <p>Вибір кольорів: чорний, білий, сірий.</p> -->
+              <!-- </li> -->
+            <!-- </ul> -->
+            <!-- <p class="paragraph__text">Стілець доступний у кількох кольорах, включаючи розкішний чорний та стильний білий. Не пропустіть шанс придбати його за спеціальною ціною. Кількість обмежена!</p> -->
+            <!-- <a class="arrival__button smooth-scroll" href="#machines">Придбати</a> -->
+          <!-- </div> -->
+          <!-- <img class="red__decorator__photo" src="img/exceptional/exceptional__2.png" alt="red coffeemachine"> -->
+        <!-- </section> -->
+        <!-- <div class="action"> -->
+          <!-- <p class="action__name">1 місяць <span class="action__red">безкоштовного*</span> користування</p> -->
+          <!-- <p class="paragraph__text">*Орендуйте будь-яку кавову машину 6 місяців і отримайте 1 місяць безкоштовно!<br>Ця пропозиція діє до 31 червня 2023 року і не може бути поєднана з іншими пропозиціями.</p> -->
+          <!-- <div class="action__buttons"> -->
+            <!-- <a class="button__second smooth-scroll" href="#contacts">Придбати</a> -->
+            <!-- <a class="button__outline smooth-scroll" href="#machines">Детальніше</a> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        <section id="services">
+          <div class="container">
+            <p class="section__tag">Послуги</p>
+            <h2 class="section__name">Все для створення ідеального простору</h2>
+            <p class="comment">Наша компанія спеціалізується на дизайні інтер'єру. Ми пропонуємо комплексні послуги: від консультацій до створення унікальних інтер'єрних рішень для вашого простору.</p>
+            <nav class="middle__nav">
+              <ul class="services__menu">
+                <li><a href="#tab-1" class="tab-trigger">Консультації</a></li>
+                <li><a href="#tab-2" class="tab-trigger">Бронювання</a></li>
+                <li><a href="#tab-3" class="tab-trigger">Декор</a></li>
+                <li><a href="#tab-4" class="tab-trigger">Ремонт</a></li>
+              </ul>
+            </nav>
+            <hr class="services__hr">
+            <div class="servicesmenu__element__container">
+              <div id="tab-1" class="servicesmenu__element services__item-active">
+                <img src="img/services/service__1.jpg" alt="service photo">
+                <div class="servicesmenu__element__content">
+                  <p class="servicesmenu__tag">Консультації з декору та дизайну.</p>
+                  <hr>
+                  <p class="servicesmenu__desc">Ми пропонуємо індивідуальні консультації щодо оформлення інтер'єру. Наші дизайнери допоможуть вам обрати стиль, кольори, матеріали та аксесуари, які найкраще підходять до вашого простору.<br><br>Під час консультації ви отримаєте професійні поради та детальний план дій для створення ідеального інтер'єру.</p>
+                  <ul>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Індивідуальний підхід до кожного клієнта.</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Допомога у виборі меблів, кольорової гами та освітлення.</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Рекомендації щодо зонування простору.</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="tab-2" class="servicesmenu__element">
+                <img src="img/services/service__2.jpg" alt="service photo">
+                <div class="servicesmenu__element__content consulting__slide">
+                  <p class="servicesmenu__tag">Бронювання декоратора</p>
+                  <hr>
+                  <p class="servicesmenu__desc">Забронюйте нашого декоратора для оформлення будь-якого простору: від житлових кімнат до офісних приміщень чи залів для подій.<br><br>Ми пропонуємо зручну систему бронювання, яка дозволяє швидко запланувати візит фахівця.</p>
+                  <ul>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Гнучкий графік для вашої зручності.</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Можливість обговорити деталі до візиту.</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Швидке підтвердження заявки.</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="tab-3" class="servicesmenu__element">
+                <img src="img/services/service__3.jpg" alt="service photo">
+                <div class="servicesmenu__element__content">
+                  <p class="servicesmenu__tag">Послуги декорування</p>
+                  <hr>
+                  <p class="servicesmenu__desc">Наші фахівці створять унікальні декорації для вашого простору, враховуючи ваші побажання та сучасні тренди.<br><br>Ми працюємо з будь-якими приміщеннями, забезпечуючи гармонійний та стильний вигляд.</p>
+                  <ul>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Індивідуальне створення декору під стиль приміщення.</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Використання якісних матеріалів.</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Повна відповідність вашим побажанням.</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="tab-4" class="servicesmenu__element">
+                <img src="img/services/service__4.jpg" alt="service photo">
+                <div class="servicesmenu__element__content">
+                  <p class="servicesmenu__tag">Послуги ремонту інтер'єру</p>
+                  <hr>
+                  <p class="servicesmenu__desc">Якщо ваш простір потребує оновлення, ми пропонуємо ремонтні роботи, які включають декорування та оновлення інтер'єру відповідно до сучасних стандартів.<br><br>Наша команда швидко та якісно виконає роботи будь-якої складності.</p>
+                  <ul>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Повний спектр ремонтних послуг</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Декорування після завершення ремонтних робіт.</p>
+                    </li>
+                    <li>
+                      <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                      <p>Використання сучасних матеріалів та технологій.</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="interior">
+          <div class="container">
+            <p class="section__tag">Наш декор</p>
+            <h2 class="section__name">Створіть унікальний стиль вашого простору</h2>
+            <p class="comment">Ми пропонуємо ексклюзивні декор-елементи, які допоможуть вам виразити індивідуальність у кожній деталі. Просто натисніть на зображення та додайте вибраний продукт у кошик.</p>
+            <div class="decor__carousel__container">  
+              <img class="decorator__carousel__arrows customPreviousBtnThree" src="img/arrow-left.svg" alt="prev slide">
+              <div class="decor__carousel owl-carousel slide-three">
+                <div class="decor__element">
+                  <img class="product__img" src="img/decorations/black_clock.png" alt="Classico">
+                  <p class="product__name">Чорний годинник</p>
+                  <p class="decor__price product__price">15,50USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decor__element">
+                  <img class="product__img" src="img/decorations/brown_wood_nightstand.png" alt="Intenso">
+                  <p class="product__name">Коричнева тумбочка</p>
+                  <p class="decor__price product__price">50,00USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decor__element">
+                  <img class="product__img" src="img/decorations/mini_flower_pot.png" alt="Espresso">
+                  <p class="product__name">Малий квітковий горщик</p>
+                  <p class="decor__price product__price">10,50USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decor__element">
+                  <img class="product__img" src="img/decorations/modern_black_table.png" alt="Decaf">
+                  <p class="product__name">Сучасний чорний стіл</p>
+                  <p class="decor__price product__price">35,50USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+                <div class="decor__element">
+                  <img class="product__img" src="img/decorations/modern_sofa.png" alt="Mocha">
+                  <p class="product__name">Сучасний диван</p>
+                  <p class="decor__price product__price">95,00USD</p>
+                  <button class="transition">В корзину</button>
+                </div>
+              </div>
+              <img class="decorator__carousel__arrows customNextBtnThree" src="img/arrow-right.svg" alt="next slide">
+            </div>
+          </div>
+        </section>
+        <section id="questions">
+          <div class="questions__content">
+            <p class="section__tag section__questions">Питання?</p>
+            <h2 class="questions__name">Задавайте будь-які питання про <span>Декор</span></h2>
+            <p class="paragraph__text">Декор – це наша пристрасть. Запитуйте про наші елементи декору, їх особливості чи використання у вашому інтер’єрі.</p>
+            <a href="#faq" class="button__second smooth-scroll">FAQ</a>
+            <a href="#contacts" class="button__outline smooth-scroll">Задати питання</a>
+          </div>
+          <img src="img/decorator__work.png" alt="Decorator work"></img>
+        </section>
+        <div class="experience">
+          <div class="exp__element red__1">
+            <div class="exp__icon__background"><img class="exp__icon" src="img/years.svg" alt="years"></div>
+            <p class="exp__amount">8</p>
+            <hr class="exp__line">
+            <p class="exp__descr">Років ми допомагаємо створювати неймовірні інтер'єри.</p>
+          </div>
+          <div class="exp__element red__2">
+            <div class="exp__icon__background"><img class="exp__icon" src="img/clients.svg" alt="clients"></div>
+            <p class="exp__amount">1240+</p>
+            <hr class="exp__line">
+            <p class="exp__descr">Задоволених клієнтів обирають нас щомісяця.</p>
+          </div>
+          <div class="exp__element red__3">
+            <div class="exp__icon__background"><img class="exp__icon" src="img/modern.svg" alt="modern"></div>
+            <p class="exp__amount">38</p>
+            <hr class="exp__line">
+            <p class="exp__descr">Унікальних декорацій було створено під замовлення.</p>
+          </div>
+          <div class="exp__element red__4">
+            <div class="exp__icon__background"><img class="exp__icon" src="img/varieties.svg" alt="varieties"></div>
+            <p class="exp__amount">5</p>
+            <hr class="exp__line">
+            <p class="exp__descr">Різновидів декору, які ідеально пасуватимуть до вашого інтер'єру.</p>
+          </div>
+        </div>
+        <section id="pricing">
+          <div class="container">
+            <p class="section__tag">Ціни</p>
+            <h2 class="section__name">Готові оновити ваш простір?</h2>
+            <p class="comment">Ми пропонуємо індивідуальні пакети послуг для створення ідеального інтер’єру. Оберіть той, що відповідає вашим потребам.</p>
+            <div class="store__packages">
+              <div class="store__element">
+                <div class="pricing__icon-background"><img class="pricing__icon" src="img/store/icons-store/coffee-machine1.svg" alt="coffee machine"></div>
+				  <p class="type"><span class="price">$150</span> Basic</p>
+				  <p class="duration">━ одноразово</p>
+                <ul>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Консультація щодо стилю.</p>
+                  </li>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Поради щодо розміщення.</p>
+                  </li>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Рекомендації по кольоровій палітрі.</p>
+                  </li>
+                </ul>
+                <a href="#contacts" class="pricing__button smooth-scroll">Замовити</a>
+              </div>
+              <div class="store__element">
+                <div class="pricing__icon-background"><img class="pricing__icon" src="img/store/icons-store/coffee-machine2.svg" alt="coffee machine"></div>
+                <p class="type"><span class="price">$299</span> Standard</p>
+                <p class="duration">━ одноразово</p>
+                <ul>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Все з пакета Basic.</p>
+                  </li>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">3D-візуалізація інтер’єру.</p>
+                  </li>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Список рекомендованих матеріалів і меблів.</p>
+                  </li>
+                </ul>
+                <a href="#contacts" class="pricing__button smooth-scroll">Замовити</a>
+              </div>
+              <div class="store__element">
+                <div class="pricing__icon-background"><img class="pricing__icon" src="img/store/icons-store/coffee-machine3.svg" alt="coffee machine"></div>
+                <p class="type"><span class="price">$499</span> Premium</p>
+                <p class="duration">━ за проект</p>
+                <ul>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Все з пакета Standard.</p>
+                  </li>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Повний супровід проекту.</p>
+                  </li>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Індивідуальний вибір декору.</p>
+                  </li>
+                  <li class="package__descr">
+                    <img class="confirmed__icon" src="img/confirmed.svg" alt="confirmed">
+                    <p class="paragraph__text">Виїзд на об’єкт для контролю.</p>
+                  </li>
+                </ul>
+                <a href="#contacts" class="pricing__button smooth-scroll">Замовити</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="video">
+          <div class="video__content">
+            <div class="container">
+              <p class="section__tag section__video">Відео</p>
+              <div class="video__grid">
+                <h2 class="video__name">Подивіться коротке відео з нашою роботою</h2>
+                <a href="https://www.youtube.com/watch?v=ONjdqS0Bj6s" target="_blank" class="playvid">
+                  <img class="playvid__img" src="img/playvid.svg" alt="play video">
+                  <p>Дивитись відео</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="choose">
+          <div class="container">
+            <div class="choose__text">
+              <p class="choose__name">Обирайте свій ідеальний стиль інтер'єру</p>
+              <p class="choose__descr">Пропонуємо професійні послуги декоратора з урахуванням ваших побажань.</p>
+            </div>
+            <div class="choose__buttons">
+              <a href="#interior" class="button__second smooth-scroll">Наші послуги</a>
+              <a href="#contacts" class="button__outline smooth-scroll">Детальніше</a>
+            </div>
+          </div>
+        </div>
+        <section id="testimonials">
+          <div class="container">
+            <p class="section__tag">Відгуки</p>
+            <h2 class="section__name">Відгуки наших клієнтів</h2>
+            <p class="comment">Ми пишаємося тим, що наші ідеї та дизайн дарують комфорт і естетику нашим клієнтам.</p>
+            <div class="testimonials__carousel">
+              <img class="decorator__carousel__arrows customPreviousBtnFour" src="img/arrow-left.svg" alt="prev slide">
+              <div class="owl-carousel slide-four">
+                <div class="testi__carousel__el">
+                  <img src="img/josh.webp" alt="josh mendel" class="people__photo">
+                  <p class="client__name">Josh Mendel</p>
+                  <p class="client__com paragraph__text">“Я завжди мріяв про стильний, сучасний інтер'єр для своєї квартири. Цей сервіс повністю виправдав мої очікування - усе зробили швидко та професійно. Я у захваті від результату.”</p>
+                  <p class="date">Грудень 15, 2024</p>
+                </div>
+                <div class="testi__carousel__el">
+                  <img src="img/jessica.webp" alt="jessica malacks" class="people__photo">
+                  <p class="client__name">Jessica Malacks</p>
+                  <p class="client__com paragraph__text">“Ми замовили послуги декоратора для облаштування офісу. Тепер наші працівники працюють у комфортному, надихаючому просторі. Дякуємо за увагу до деталей!”</p>
+                  <p class="date">Лютий 10, 2023</p>
+                </div>
+                <div class="testi__carousel__el">
+                  <img src="img/daniella.webp" alt="daniella williamson" class="people__photo">
+                  <p class="client__name">Daniella Williamson</p>
+                  <p class="client__com paragraph__text">“Для відкриття шоуруму ми звернулися до цієї компанії. Дизайнери врахували всі наші побажання і створили атмосферний простір, який вражає наших клієнтів." </p>
+                  <p class="date">Березень 04, 2023</p>
+                </div>
+                <div class="testi__carousel__el">
+                  <img src="img/dean.webp" alt="dean steinberg" class="people__photo">
+                  <p class="client__name">Dean Steinberg</p>
+                  <p class="client__com paragraph__text">“Замовили послугу декоратора для заміського будинку. Все виконано вчасно, з творчим підходом та якісними матеріалами. Дуже задоволені!”</p>
+                  <p class="date">Березень 22, 2023</p>
+                </div>
+              </div>
+              <img class="decorator__carousel__arrows customNextBtnFour" src="img/arrow-right.svg" alt="next slide">
+            </div>
+          </div>
+        </section>
+        <div class="container faq">
+          <img src="img/faq__background.png" alt="girl with coffee">
+          <div class="faq__content">
+            <p class="section__tag section__faq">FAQ</p>
+            <p class="section__name faq__name">Залишилися запитання?</p>
+            <p class="comment faq__descr">Ми зібрали найпоширеніші запитання щодо послуг декорування інтер’єру. Якщо у вас залишилися запитання, ми з радістю відповімо на них під час персональної консультації.</p>
+            <div class="accordion__content">
+              <a class="accordion">Які послуги декоратора ви пропонуєте?</a>
+              <div class="panel paragraph__text">Ми пропонуємо повний спектр послуг: від консультації з дизайну до повного оформлення інтер’єру, враховуючи ваші побажання та стиль.</div>
+              <hr>
+              <a class="accordion">Чи можу я обрати стиль для свого інтер'єру?</a>
+              <div class="panel paragraph__text">Так, ми працюємо з різними стилями — від мінімалізму до класичного дизайну. Ви також можете показати нам референси, щоб створити саме той інтер’єр, про який ви мрієте.</div>
+              <hr>
+              <a class="accordion">Чи надаєте ви послуги для комерційних приміщень?</a>
+              <div class="panel paragraph__text">Так, ми працюємо з житловими та комерційними просторами. Оформлення офісів, шоурумів, кафе чи ресторанів — це також наша спеціалізація.</div>
+              <hr>
+              <a class="accordion">Як швидко ви можете виконати проєкт?</a>
+              <div class="panel paragraph__text">Тривалість роботи залежить від обсягу завдання. Ми завжди погоджуємо терміни заздалегідь і намагаємося працювати максимально оперативно.</div>
+              <hr>
+              <a class="accordion">Як замовити послуги декоратора?</a>
+              <div class="panel paragraph__text">Залиште заявку на сайті або зв’яжіться з нами за телефоном. Ми обговоримо всі деталі, підготуємо договір і розпочнемо роботу над вашим проєктом.</div>
+              <hr>
+              <a class="accordion">Чи можу я змінити своє замовлення після початку роботи?</a>
+              <div class="panel paragraph__text">Так, якщо зміни незначні, ми врахуємо їх під час роботи. Для суттєвих змін обговоримо умови додатково.</div>
+              <hr>
+            </div>
+          </div>
+        </div>
+        <section id="contacts">
+          <div class="container">
+            <div class="contacts__content">
+              <p class="section__tag section__contacts">Контакти</p>
+              <p class="section__name">Ми завжди на зв'язку</h2>
+              <p class="comment">Не соромтесь звертатися до нас, якщо вам потрібна консультація:</p>
+              <div class="conctacts__info">
+                <div class="info__address">
+                  <p class="info__name">Адреса</p>
+                  <p class="paragraph__text">303 E 61st St, Lviv, <br>NY 10065</p>
+                </div>
+                <div class="info__hours">
+                  <p class="info__name">Працюємо</p>
+                  <p class="paragraph__text">Понеділок - Суббота: 11 AM - 9 PM<br>Sunday: 11 AM - 7 PM</p>
+                </div>
+                <div class="info__contacts">
+                  <p class="info__name">Контакти</p>
+                  <p class="paragraph__text">+380 (666) 88 2024<br>decorator@email.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact__request">
+              <form name="message">
+                <input class="contact__imput" name="contactFullname" placeholder="Введіть ваше повне ім'я*" required>
+                <input class="contact__imput" name="contactPhone" placeholder="Введіть ваш телефон*" required>
+                <input class="contact__imput" name="contactEmail" placeholder="Введіть ваш e-mail*" required>
+                <textarea class="contact__imput large__imput" name="contactMessage" placeholder="Введіть ваше повідомлення" required></textarea>
+                <input class="f__button__request message__send" type="submit" value="Відправити повідомлення">
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="container footer__nav">
+          <div class="footer__logo__descr">
+            <img src="img/designlogo.png" alt="Decorator logotype" class="footer__logo">
+            <p class="f__comment">Надаємо послуги професійного декорування інтер’єру для житлових і комерційних приміщень. Допоможемо створити простір вашої мрії, враховуючи ваші побажання, стиль і сучасні тренди в дизайні.</p>
+          </div>
+          <nav class="first__footer__nav">
+            <p class="name__nav smooth-scroll">Навігація</p>
+            <a class="smooth-scroll" href="#about">Про нас</a>
+            <a class="smooth-scroll" href="#steps">Як орендувати?</a>
+            <a class="smooth-scroll" href="#services">Послуги</a>
+            <a class="smooth-scroll" href="#pricing">Ціни</a>
+          </nav>
+          <nav class="second__footer__nav">
+            <p class="name__nav">Магазин</p>
+            <a class="smooth-scroll" href="#machines">Декор</a>
+            <a class="smooth-scroll" href="#testimonials">Відгуки</a>
+            <a class="smooth-scroll" href="#services">FAQ</a>
+            <a class="smooth-scroll" href="#pricing">Контакти</a>
+          </nav>
+          <div class="subscribe">
+            <p>Підпишіться на нашу розсилку</p>
+            <input class="footer__input-email" name="email" placeholder="Email*" required>
+            <input class="f__button__request" type="submit" value="Підписатись">
+          </div>
+        </div>
+        <div class="socnetwork">
+          <div class="container">
+          <p>© Створено студентом Vladislav Tarasiuk для Decorator | Всі права захищені</p>
+            <div class="socnetwork__icons">
+              <div class="socnetwork__background"><a href="https://facebook.com"><img src="img/facebook.svg" alt="facebook"></a></div>
+                <div class="socnetwork__background"><a href="https://twitter.com"><img src="img/twitter.svg" alt="twitter"></a></div>
+              <div class="socnetwork__background"><a href="https://youtube.com"><img src="img/youtube.svg" alt="youtube"></a></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="assets/js/owl.carousel.min.js"></script>
+      <script src="js/owlcarousel.js"></script>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Bзaємoдiя з базою даних для сайту.",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Владислав Тарасюк",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-recaptcha": "^5.1.0",
+    "helmet-csp": "^3.4.0",
+    "http-proxy": "^1.18.1",
+    "json-bigint": "^1.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "mariadb": "^3.1.1",
+    "node-telegram-bot-api": "^0.61.0"
+  },
+  "keywords": []
+}

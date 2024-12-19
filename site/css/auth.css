@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.auth__container {
+    max-width: 500px;
+    border-radius: 10px;
+}
+.auth__container .contact__input {
+    width: 100%;
+    resize: none;
+    margin-top: 25px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(219, 219, 219, 0.774);
+    font-size: 15px;
+    padding: 15px 25px 15px 25px;
+}
+.auth__container .f__button__request:hover {
+    background-color: #222;
+    color: white;
+}
+.auth__container, .cart__request {
+    padding: 50px 80px 70px 80px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.233);
+    border-radius: 10px;
+}
+.f__button__request {
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 15px 7px;
+    transition: 0.3s;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: center;
+    background-color: #C00407;
+    border-radius: 3px;
+    margin-top: 55px;
+    margin-bottom: 20px;
+}
+.f__button__request:hover {
+    background-color: white;
+    color: black;
+}
+.contact__input:focus {
+    border-color: rgb(59, 153, 252);
+    box-shadow: 0 0px 8px rgb(59, 153, 252);
+}
+.auth__container h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.auth__response {
+    color: #C00407;
+    position: absolute;
+}

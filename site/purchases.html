@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/title/title-icon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/title/title-icon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/title/title-icon-96x96.png" sizes="96x96">
+    <title>Замовлення</title>
+    <link rel="stylesheet" href="css/purchases.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <main class="container">
+        <h1>Замовлення</h1>
+        <div class="purchase__instruction">
+            <div class="instruction__num">
+                <p>Номер замовлення та дата.</p>
+            </div>
+            <div class="instruction__com">
+                <p>Коментар замовника</p>
+            </div>
+            <div class="instruction__set">
+                <p>Управління замовленням</p>
+            </div>
+            <div class="instruction__buy">
+                <p>Товар (кількість).</p>
+            </div>
+            <div class="instruction__inf">
+                <p>Інформація про замовника</p>
+            </div>
+            <div class="instruction__btn">
+                <button class="btn__reload" onclick="window.location.reload()"><img src="img/reload.png" alt="reload icon"></img></button>
+            </div>
+        </div>
+        <div class="purchase__settings">
+            <input type="radio" name="select" id="purchase__new" value="new" checked>
+            <input type="radio" name="select" id="purchase__done" value="done">
+              <label for="purchase__new" class="option purchase__new">
+                <div class="dot"></div>
+                 <span>Необроблені замовлення</span>
+                 </label>
+              <label for="purchase__done" class="option purchase__done">
+                <div class="dot"></div>
+                 <span>Готові замовлення</span>
+              </label>
+        </div>
+        <div id="purchase__container"></div>
+        <!-- <div class="purchase__cart">
+            <div class="cart__num">
+                <h2 class="num__order">№12</h2>
+                <p class="date__order">12.04.23</p>
+            </div>
+            <div class="cart__buy">
+                <h2>Товар:</h2>
+                <p class="list__order">Intenso (x1), SMIK 2 Coffee Machine (x2), ORGANIC Coffee Machine (x3), SMIK Coffee Machine (x1)</p>
+            </div>
+            <div class="cart__com">
+                <h2>Коментар:</h2>
+                <p class="comment__order">Доброго дня, був дуже зацікавлений вашою компанією та вирішив замовити декілька приладів для свого кафе.</p>
+            </div>
+            <div class="cart__inf">
+                <h2 class="fullname__order">Вінстон Степан Юрійович</h2>
+                <div class="cart__inf__client">
+                    <p class="phone__order">+380334882716</p>
+                    <p class="email__order">clownprodu@gmail.com</p>
+                </div>
+                <h2 class="price__order">15001$</h2>
+            </div>
+            <div class="cart__set">
+                <div class="set__done">
+                    <p>✔</p>
+                </div>
+                <div class="set__delete">
+                    <p>✖</p>
+                </div>
+            </div>
+        </div>
+        <div class="purchase__cart">
+            <div class="cart__num">
+                <h2 class="num__order">№12</h2>
+                <p class="date__order">12.04.23</p>
+            </div>
+            <div class="cart__buy">
+                <h2>Товар:</h2>
+                <p class="list__order">Intenso (x1), SMIK 2 Coffee Machine (x2), ORGANIC Coffee Machine (x3), SMIK Coffee Machine (x1)</p>
+            </div>
+            <div class="cart__com">
+                <h2>Коментар:</h2>
+                <p class="comment__order">Доброго дня, був дуже зацікавлений вашою компанією та вирішив замовити декілька приладів для свого кафе.</p>
+            </div>
+            <div class="cart__inf">
+                <h2 class="fullname__order">Вінстон Степан Юрійович</h2>
+                <div class="cart__inf__client">
+                    <p class="phone__order">+380334882716</p>
+                    <p class="email__order">clownprodu@gmail.com</p>
+                </div>
+                <h2 class="price__order">15001$</h2>
+            </div>
+            <div class="cart__set">
+                <div class="set__done">
+                    <p>✔</p>
+                </div>
+                <div class="set__delete">
+                    <p>✖</p>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <script src="js/purchases.js"></script>
+</body>
+</html>

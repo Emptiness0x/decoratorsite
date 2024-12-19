@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+main {
+    visibility: hidden;
+}
+.container {
+    max-width: 1289px;
+	margin: auto;
+    margin-top: 90px;
+}
+main h1 {
+    font-weight: 700;
+    font-size: 50;
+}
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+.purchase__cart p {
+    font-size: 16px;
+    width: 100%;
+}
+.purchase__instruction {
+    margin-top: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 28px;
+}
+.instruction__num {
+    background-color: #C1C1C1;
+    order: 1;
+}
+.instruction__com {
+    background-color: #FFDFDD;
+    order: 2;
+}
+.instruction__set {
+    background-color: #A8A8A8;
+    order: 3;
+}
+.instruction__buy {
+    background-color: #E1E1E1;
+    order: 1;
+}
+.instruction__inf {
+    background-color: #FFEBE0;
+    order: 2;
+}
+.purchase__instruction .instruction__btn {
+    order: 3;
+    text-align: left;
+}
+.btn__reload {
+    background-color: #A8A8A8;
+    padding: 3px;
+    border: 2px solid #858585;
+    cursor: pointer;
+    transition: .3s;
+}
+.btn__reload:hover {
+    background-color: #b87d7d;
+}
+.btn__reload img {
+    max-width: 30px;
+    max-height: 30px;
+}
+.purchase__instruction div {
+    max-width: 411px;
+    flex-basis: 50%;
+    text-align: center;
+    color: #3F3F3F;
+}
+.purchase__instruction p {
+    padding: 12px;
+}
+.purchase__settings {
+    background-color: #D9D9D9;
+    display: flex;
+    height: 47px;
+    margin-top: 40px;
+}
+.purchase__cart {
+    margin-top: 30px;
+    display: flex;
+}
+.purchase__cart .cart__num,
+.purchase__cart .cart__buy,
+.purchase__cart .cart__com,
+.purchase__cart .cart__inf {
+    width: 100%;
+    padding: 20px 22px;
+}
+
+.cart__num {
+    max-width: 125px;
+    background-color: #C1C1C1;
+}
+h2 {
+    text-decoration: underline;
+}
+.price__order {
+    margin-top: 20px;
+    text-decoration: none;
+}
+.cart__buy p,
+.cart__com p,
+.cart__inf p,
+.cart__num p {
+    margin-top: 10px;
+}
+.cart__buy {
+    max-width: 300px;
+    background-color: #E1E1E1;
+}
+.cart__com {
+    max-width: 395px;
+    background-color: #FFDFDD;
+}
+.cart__inf {
+    max-width: 380px;
+    background-color: #FFEBE0;
+}
+.cart__set {
+    max-width: 90px;
+    background-color: #A8A8A8;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.set__done, .set__delete {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #D9D9D9;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.set__done p, .set__delete p {
+    font-size: 30px;
+    margin-top: 0px;
+}
+.set__done {
+    background-color: #3F3F3F;
+}
+.set__delete {
+    background-color: #502C2C;
+}
+.cart__inf__client {
+    display: flex;
+}
+
+/* WRAPPER */
+
+  .purchase__settings .option{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+    margin-right: 20px;
+  }
+  .purchase__settings .option .dot{
+    height: 20px;
+    width: 20px;
+    background: #a8a8a8;
+    border-radius: 5px;
+    position: relative;
+    margin-right: 20px;
+  }
+  .purchase__settings .option .dot::before{
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #7e7e7e;
+    border-radius: 5px;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  #purchase__done:checked:checked ~ .purchase__done,
+  #purchase__new:checked:checked ~ .purchase__new{
+    border-color: #7e7e7e;
+    background: #7e7e7e;
+  }
+  #purchase__done:checked:checked ~ .purchase__done .dot,
+  #purchase__new:checked:checked ~ .purchase__new .dot{
+    background: #fff;
+  }
+  #purchase__done:checked:checked ~ .purchase__done .dot::before,
+  #purchase__new:checked:checked ~ .purchase__new .dot::before{
+    opacity: 1;
+    transform: scale(1);
+  }
+  .purchase__settings .option span{
+    font-size: 20px;
+    color: #808080;
+  }
+  #purchase__done:checked:checked ~ .purchase__done span,
+  #purchase__new:checked:checked ~ .purchase__new span{
+    color: #fff;
+  }
